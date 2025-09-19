@@ -43,9 +43,11 @@ sudo xbps-install -y xorg-minimal\
 
 curl https://dl.suckless.org/dwm/dwm-6.6.tar.gz -o ./suckless/dwm-6.6.tar.gz
 curl https://dl.suckless.org/st/st-0.9.3.tar.gz -o ./suckless/st-0.9.3.tar.gz
+curl https://dl.suckless.org/tools/dmenu-5.4.tar.gz -o ./suckless/dmenu-5.4.tar.gz
 
 tar -xzf ./suckless/dwm-6.6.tar.gz -C ./suckless
 tar -xzf ./suckless/st-0.9.3.tar.gz -C ./suckless
+tar -xzf ./suckless/dmenu-5.4.tar.gz -C ./suckless
 
 DWM=(
   "https://dwm.suckless.org/patches/vanitygaps/dwm-cfacts-vanitygaps-6.4_combo.diff"
@@ -70,9 +72,11 @@ done
 
 cp -vf ./suckless/dwm.config.h ./suckless/dwm-6.6/config.h
 cp -vf ./suckless/st.config.h ./suckless/st-0.9.3/config.h
+cp -vf ./suckless/dmenu.config.h ./suckless/dmenu-5.4/config.h
 
 sudo make -C ./suckless/dwm-6.6 clean install
 sudo make -C ./suckless/st-0.9.3 clean install
+sudo make -C ./suckless/dmenu-5.4 clean install
 
 sudo ln -s /etc/sv/dbus /var/service
 sudo rm /var/service/acpid
@@ -82,8 +86,10 @@ xdg-user-dirs-update
 
 rm -rf ./suckless/dwm-6.6
 rm -rf ./suckless/st-0.9.3
-rm -rf ./suckless/dwm-6.6.tar.gz
-rm -rf ./suckless/st-0.9.3.tar.gz
+rm -rf ./suckless/dmenu-5.4
+rm -f ./suckless/dwm-6.6.tar.gz
+rm -f ./suckless/st-0.9.3.tar.gz
+rm -f ./suckless/dmenu-5.4.tar.gz
 
 sudo xbps-remove -y base-devel\
                     libX11-devel\
