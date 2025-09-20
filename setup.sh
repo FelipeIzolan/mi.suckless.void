@@ -91,15 +91,15 @@ rm -f ./suckless/dwm-6.6.tar.gz
 rm -f ./suckless/st-0.9.3.tar.gz
 rm -f ./suckless/dmenu-5.4.tar.gz
 
-sudo xbps-remove -y base-devel\
-                    libX11-devel\
-                    libXft-devel\
-                    libXinerama-devel\
-                    freetype-devel\
-                    fontconfig-devel\
-                    xdg-user-dirs\
-                    curl
-sudo xbps-remove -Oo
+sudo xbps-remove -Ry base-devel\
+                     libX11-devel\
+                     libXft-devel\
+                     libXinerama-devel\
+                     freetype-devel\
+                     fontconfig-devel\
+                     xdg-user-dirs\
+                     curl
+sudo xbps-remove -Oyo
  
 mkdir -p ~/.cache
 mkdir -p ~/.local/share/fonts
